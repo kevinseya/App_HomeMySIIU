@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Image, StyleSheet, StatusBar, Text, ActivityIndicator, ScrollView } from 'react-native';
+import { View, Image, StyleSheet, StatusBar, Text, ActivityIndicator, ScrollView, ImageBackground } from 'react-native';
 import * as Font from 'expo-font'; 
 import { FontAwesome } from '@expo/vector-icons'; 
+
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
@@ -58,47 +59,62 @@ export default function App() {
         <View style={styles.circle}></View>
       </View>
 
-      {/* Cuerpo de la pantalla con contenido */}
-      <View style={styles.body}>
-        <View style={styles.content}>
-          <Text style={styles.text}>Últimas noticias en la UCE..</Text>
-          {/* Carrusel horizontal de tarjetas */}
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.cardsContainer}
-          >
-            {socialCards.map((card) => (
-              <View key={card.id} style={styles.card_social_network}>
-                <View style={styles.cardImageContainer}>
-                  <Image source={require('./assets/logo.png')} style={styles.largeLogo} />
-                  <View style={styles.textContainer}>
-                    <Text style={styles.cardTitle}>{card.title}</Text>
-                    <Text style={styles.cardUser}>{card.user}</Text>
+      {/* Fondo detrás del contenido */}
+      <ImageBackground 
+        source={require('./assets/background.png')} 
+        style={styles.imageBackground}  // Fondo detrás del contenido
+        resizeMode="cover"
+      >
+        {/* Capa con opacidad solo para el fondo */}
+        <View style={styles.overlay}></View> {/* Aquí aplicamos la opacidad al fondo */}
+
+        {/* Cuerpo de la pantalla con contenido */}
+        <View style={styles.body}>
+          <View style={styles.content}>
+            <Text style={styles.text}>Últimas noticias en la UCE..</Text>
+            {/* Carrusel horizontal de tarjetas */}
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.cardsContainer}
+            >
+              {socialCards.map((card) => (
+                <View key={card.id} style={styles.card_social_network}>
+                  <View style={styles.cardImageContainer}>
+                    <Image source={require('./assets/logo.png')} style={styles.largeLogo} />
+                    <View style={styles.textContainer}>
+                      <Text style={styles.cardTitle}>{card.title || "Sin título"}</Text>
+                      <Text style={styles.cardUser}>{card.user || "@SinUsuario"}</Text>
+                    </View>
                   </View>
-                </View>
-                <Text style={styles.cardContent} numberOfLines={3} ellipsizeMode=''>{card.content}</Text>
-                {/* Logo de "X" en el extremo superior derecho */}
-                <View style={styles.xLogoContainer}>
-                  <Image
-                    source={require('./assets/logo_x.png')}  // Asegúrate de tener esta imagen
-                    style={styles.xLogo}
-                  />
-                </View>
+                  <Text style={styles.cardContent} numberOfLines={3} ellipsizeMode='tail'>
+                    {card.content || "Contenido no disponible"}
+                  </Text>
+
+                  {/* Logo de "X" en el extremo superior derecho */}
+                  <View style={styles.xLogoContainer}>
+                    <Image
+                      source={require('./assets/logo_x.png')}  // Asegúrate de tener esta imagen
+                      style={styles.xLogo}
+                    />
+                  </View>
+
                   {/* Fecha y hora bajo el cardContent */}
-                <Text style={styles.cardDate}>{card.date}</Text>
-                {/* Íconos en la parte inferior */}
-                <View style={styles.iconContainer}>
-                  <FontAwesome name="comment" size={8} color="#064771" />
-                  <FontAwesome name="retweet" size={8} color="#064771" />
-                  <FontAwesome name="heart" size={8} color="#064771" />
-                  <FontAwesome name="share-alt" size={8} color="#064771" />
-                </View>              
-              </View>
-            ))}
-          </ScrollView>
+                  <Text style={styles.cardDate}>{card.date || "Fecha no disponible"}</Text>
+
+                  {/* Íconos en la parte inferior */}
+                  <View style={styles.iconContainer}>
+                    <FontAwesome name="comment" size={8} color="#064771" />
+                    <FontAwesome name="retweet" size={8} color="#064771" />
+                    <FontAwesome name="heart" size={8} color="#064771" />
+                    <FontAwesome name="share-alt" size={8} color="#064771" />
+                  </View>               
+                </View>
+              ))}
+            </ScrollView>
+          </View>
         </View>
-      </View>
+      </ImageBackground>
 
       <View style={styles.footer} />
       <StatusBar style="light" />
@@ -134,10 +150,18 @@ const styles = StyleSheet.create({
     height: 100,
     resizeMode: 'contain',
   },
+  imageBackground: {
+    flex: 1,  
+    justifyContent: 'center', 
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,  
+    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+  },
   body: {
     flex: 1,
-    backgroundColor: '#fff',
     paddingTop: 20,
+    justifyContent: 'flex-start',  // Para que todo el contenido se alinee hacia la parte superior
   },
   content: {
     padding: 20,
@@ -157,10 +181,11 @@ const styles = StyleSheet.create({
   card_social_network: {
     backgroundColor: 'rgba(128, 129, 131, 0.15)', 
     width: 330,
-    height: 150,
+    height: 140, 
     borderRadius: 20,
     padding: 15, 
     marginRight: 15, 
+    position: 'relative',
   },
   cardImageContainer: {
     flexDirection: 'row',  
@@ -168,33 +193,38 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   largeLogo: {
-    width: 30,  
-    height: 30,
+    width: 20,
+    height: 20,
     resizeMode: 'contain',
-    marginRight: 1,  
+    marginRight: 10, 
   },
   textContainer: {
-    flex: 1,  
+    flex: 1, 
   },
   cardTitle: {
     color: '#064771',
     fontFamily: 'Montserrat-Bold',
-    fontSize: 7, 
-    marginBottom: -1, 
+    fontSize: 8, 
+    marginBottom: 1, 
   },
   cardUser: {
     color: '#064771',
     fontFamily: 'Montserrat-Light',
-    fontSize: 7, 
-    marginBottom: -5,
+    fontSize: 8, 
+    marginBottom: -1,
   },
   cardContent: {
-  color: '#064771',
-  fontFamily: 'Montserrat-Light',
-  fontSize: 16,
-  textAlign: 'justify',
-  numberOfLines: 3, 
-  ellipsizeMode: 'tail', 
+    color: '#064771',
+    fontFamily: 'Montserrat-Light',
+    fontSize: 14,
+    textAlign: 'justify',
+  },
+  cardDate: {
+    color: '#064771',
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 8,
+    textAlign: 'left',
+    marginTop: 5,
   },
   footer: {
     backgroundColor: '#808183', 
@@ -206,7 +236,22 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  circleContainer: {
+  xLogoContainer: {
+    position: 'absolute',  
+    top: 15,  
+    right: 20, 
+  },
+  xLogo: {
+    width: 15,  
+    height: 15,
+    resizeMode: 'contain',
+  },
+  iconContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 6,
+  },
+   circleContainer: {
     position: 'absolute',
     bottom: 30, 
     left: 0,
@@ -223,28 +268,5 @@ const styles = StyleSheet.create({
     borderColor: 'white', 
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  // Nuevo estilo para el logo "X"
-  xLogoContainer: {
-    position: 'absolute',  
-    top: 20,  
-    right: 20, 
-  },
-  xLogo: {
-    width: 20,  
-    height: 20,
-    resizeMode: 'contain',
-  },
-  cardDate: {
-    color: '#064771',
-    fontFamily: 'Montserrat-Regular',
-    fontSize: 8,
-    textAlign: 'left',  // Alinea la fecha a la derecha
-    marginTop: 5,  // Espacio entre el contenido y la fecha
-  },
-   iconContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 6,  // Espacio entre el contenido y los íconos
   },
 });
