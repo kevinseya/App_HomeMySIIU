@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ImageBackground, Text } from 'react-native';
+import { View, Text, ImageBackground } from 'react-native';
 import styles from './Home.styles';
 import SocialCards from './components/SocialCards/SocialCards';
 import IconBoxes from './components/IconBoxes/IconBoxes';
@@ -17,14 +17,10 @@ const Home = ({ socialCards }) => {
       <View style={styles.body}>
         <View style={styles.content}>
           <Text style={styles.text}>Últimas noticias en la UCE..</Text>
-          
           <SocialCards socialCards={socialCards} />
-          
           <IconBoxes />
-          
           <NotificationCard />
-
-           <VirtualAdvisor />
+          <VirtualAdvisor />
         </View>
       </View>
     </ImageBackground>

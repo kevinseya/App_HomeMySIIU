@@ -1,18 +1,12 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
 
 export default StyleSheet.create({
-  imageBackground: {
-    flex: 1,  
-    justifyContent: 'center', 
-  },
-  overlay: {
-    ...StyleSheet.absoluteFillObject,  
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
-  },
   body: {
     flex: 1,
     paddingTop: 25,
-    justifyContent: 'flex-start',  
+    justifyContent: 'flex-start',
   },
   content: {
     padding: 20,
@@ -24,5 +18,13 @@ export default StyleSheet.create({
     color: '#AD9219',
     fontFamily: 'Montserrat-Regular',
     textAlign: 'center',
+  },
+  imageBackground: {
+    flex: 1,  
+    justifyContent: 'center',
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,  
+    backgroundColor: 'rgba(255, 255, 255, 0.6)',
   },
 });
