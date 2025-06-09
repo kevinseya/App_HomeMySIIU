@@ -12,9 +12,6 @@ const Header = () => {
           style={styles.logo}
         />
       </View>
-      <View style={styles.circleContainer}>
-        <View style={styles.circle}></View>
-      </View>
     </>
   );
 };

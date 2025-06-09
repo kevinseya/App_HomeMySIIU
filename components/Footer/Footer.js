@@ -4,7 +4,11 @@ import styles from './Footer.styles';
 
 const Footer = () => {
   return (
-    <View style={styles.footer} />
+    <View style={styles.footer}>
+      <View style={styles.circleContainer}>
+        <View style={styles.circle}></View>
+      </View>
+    </View>
   );
 };
 
