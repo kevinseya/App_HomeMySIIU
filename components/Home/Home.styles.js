@@ -16,7 +16,7 @@ export default StyleSheet.create({
   text: {
     fontSize: 16,
     color: '#AD9219',
-    fontFamily: 'Montserrat-Regular',
+    fontFamily: 'Montserrat-Bold',
     textAlign: 'center',
   },
   imageBackground: {
