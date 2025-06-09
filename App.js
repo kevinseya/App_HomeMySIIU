@@ -16,7 +16,7 @@ const socialCards = [
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false); // Estado para cambiar el tema
+  const [isDarkMode, setIsDarkMode] = useState(false); 
 
   useEffect(() => {
     async function loadFonts() {
@@ -43,7 +43,6 @@ export default function App() {
     );
   }
 
-  // Función para alternar entre modo claro y oscuro
   const toggleDarkMode = () => {
     setIsDarkMode(prevState => !prevState);
   };
@@ -51,7 +50,7 @@ export default function App() {
   return (
     <View style={[styles.container, isDarkMode ? styles.darkBackground : styles.lightBackground]}>
       <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
-      <Home socialCards={socialCards} />
+      <Home socialCards={socialCards} isDarkMode={isDarkMode} />
       <Footer />
       <StatusBar style={isDarkMode ? 'light' : 'dark'} />
     </View>

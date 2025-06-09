@@ -16,7 +16,6 @@ export default StyleSheet.create({
   },
   iconBox: {
     alignItems: 'center',    
-    borderColor: '#064771',   
     borderWidth: 1.5,          
     width: 100,              
     height: 115,             
@@ -25,7 +24,6 @@ export default StyleSheet.create({
     justifyContent: 'center', 
   },
   iconText: {
-    color: '#064771',        
     fontFamily: 'Montserrat-Bold',
     fontSize: 7.6,            
     marginTop: 5,            

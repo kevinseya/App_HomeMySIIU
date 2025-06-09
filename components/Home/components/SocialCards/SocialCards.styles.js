@@ -7,7 +7,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   card_social_network: {
-    backgroundColor: 'rgba(128, 129, 131, 0.15)', 
+    backgroundColor: 'rgba(128, 129, 131, 0.30)', 
     width: width * 0.9,
     height: height*0.21, 
     borderRadius: 20,
@@ -30,25 +30,21 @@ export default StyleSheet.create({
     flex: 1, 
   },
   cardTitle: {
-    color: '#064771',
     fontFamily: 'Montserrat-Bold',
     fontSize: 8, 
     marginBottom: 1, 
   },
   cardUser: {
-    color: '#064771',
     fontFamily: 'Montserrat-Light',
     fontSize: 8, 
     marginBottom: -1,
   },
   cardContent: {
-    color: '#064771',
     fontFamily: 'Montserrat-Light',
     fontSize: 14,
     textAlign: 'justify',
   },
   cardDate: {
-    color: '#064771',
     fontFamily: 'Montserrat-Regular',
     fontSize: 6,
     textAlign: 'left',

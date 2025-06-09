@@ -6,7 +6,7 @@ import IconBoxes from './components/IconBoxes/IconBoxes';
 import NotificationCard from './components/NotificationCard/NotificationCard';
 import VirtualAdvisor from '../VirtualAdvisor/VirtualAdvisor';
 
-const Home = ({ socialCards }) => {
+const Home = ({ socialCards, isDarkMode }) => {
   return (
     <ImageBackground 
       source={require('../../assets/background.png')} 
@@ -17,8 +17,8 @@ const Home = ({ socialCards }) => {
       <View style={styles.body}>
         <View style={styles.content}>
           <Text style={styles.text}>Últimas noticias en la UCE..</Text>
-          <SocialCards socialCards={socialCards} />
-          <IconBoxes />
+          <SocialCards socialCards={socialCards} isDarkMode={isDarkMode} />
+          <IconBoxes isDarkMode={isDarkMode} />
           <NotificationCard />
           <VirtualAdvisor />
         </View>

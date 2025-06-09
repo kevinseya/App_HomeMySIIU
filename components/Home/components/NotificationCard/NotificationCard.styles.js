@@ -3,7 +3,7 @@ const { width, height } = Dimensions.get('window');
 
 export default StyleSheet.create({
   card_notifications: {
-    backgroundColor: 'rgba(128, 129, 131, 0.15)',  
+    backgroundColor: 'rgba(128, 129, 131, 0.30)',  
     width: width * 0.9,
     height: height * 0.18,
     borderRadius: 20,  

@@ -3,7 +3,11 @@ import { View, ScrollView, Text, Image } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import styles from './SocialCards.styles';
 
-const SocialCards = ({ socialCards }) => {
+const SocialCards = ({ socialCards, isDarkMode }) => {
+  // Establecer el color de los textos e íconos dependiendo del modo oscuro
+  const textColor = isDarkMode ? '#FFFFFF' : '#064771';
+  const iconColor = isDarkMode ? '#FFFFFF' : '#064771';
+
   return (
     <ScrollView
       horizontal
@@ -15,11 +19,11 @@ const SocialCards = ({ socialCards }) => {
           <View style={styles.cardImageContainer}>
             <Image source={require('../../../../assets/logo.png')} style={styles.largeLogo} />
             <View style={styles.textContainer}>
-              <Text style={styles.cardTitle}>{card.title || "Sin título"}</Text>
-              <Text style={styles.cardUser}>{card.user || "@SinUsuario"}</Text>
+              <Text style={[styles.cardTitle, { color: textColor }]}>{card.title || "Sin título"}</Text>
+              <Text style={[styles.cardUser, { color: textColor }]}>{card.user || "@SinUsuario"}</Text>
             </View>
           </View>
-          <Text style={styles.cardContent} numberOfLines={3} ellipsizeMode='tail'>
+          <Text style={[styles.cardContent, { color: textColor }]} numberOfLines={3} ellipsizeMode='tail'>
             {card.content || "Contenido no disponible"}
           </Text>
 
@@ -30,13 +34,13 @@ const SocialCards = ({ socialCards }) => {
             />
           </View>
 
-          <Text style={styles.cardDate}>{card.date || "Fecha no disponible"}</Text>
+          <Text style={[styles.cardDate, { color: textColor }]}>{card.date || "Fecha no disponible"}</Text>
 
           <View style={styles.iconContainer}>
-            <FontAwesome name="comment" size={8} color="#064771" />
-            <FontAwesome name="retweet" size={8} color="#064771" />
-            <FontAwesome name="heart" size={8} color="#064771" />
-            <FontAwesome name="share-alt" size={8} color="#064771" />
+            <FontAwesome name="comment" size={8} color={iconColor} />
+            <FontAwesome name="retweet" size={8} color={iconColor} />
+            <FontAwesome name="heart" size={8} color={iconColor} />
+            <FontAwesome name="share-alt" size={8} color={iconColor} />
           </View>               
         </View>
       ))}

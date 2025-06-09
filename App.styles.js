@@ -13,9 +13,9 @@ export default StyleSheet.create({
     backgroundColor: '#fff',
   },
   darkBackground: {
-    backgroundColor: '#0A0A0A', // Fondo oscuro
+    backgroundColor: '#0A0A0A', 
   },
   lightBackground: {
-    backgroundColor: '#FFFFFF', // Fondo claro
+    backgroundColor: '#FFFFFF', 
   },
 });
