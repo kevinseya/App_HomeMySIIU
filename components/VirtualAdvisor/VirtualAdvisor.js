@@ -13,7 +13,7 @@ const VirtualAdvisor = () => {
 
       // Limitar el movimiento solo en el eje X
       if (newX < 0) newX = 0;  
-      if (newX > 300) newX = 270; 
+      if (newX > 300) newX = 260; 
 
       setPosition({ x: newX, y: 0 }); 
     },
