@@ -4,6 +4,7 @@ import styles from './Home.styles';
 import SocialCards from './components/SocialCards/SocialCards';
 import IconBoxes from './components/IconBoxes/IconBoxes';
 import NotificationCard from './components/NotificationCard/NotificationCard';
+import VirtualAdvisor from '../VirtualAdvisor/VirtualAdvisor';
 
 const Home = ({ socialCards }) => {
   return (
@@ -22,6 +23,8 @@ const Home = ({ socialCards }) => {
           <IconBoxes />
           
           <NotificationCard />
+
+           <VirtualAdvisor />
         </View>
       </View>
     </ImageBackground>
