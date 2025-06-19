@@ -45,11 +45,12 @@ Este proyecto seguirá evolucionando, con planes de agregar nuevas vistas, conec
 Este proyecto se encuentra en desarrollo activo. Próximamente se integrarán nuevas vistas, funcionalidades adicionales y conexión con servicios externos.
 
 ## Anexos
+
 - **Desarrollo**
   
-![imagen](https://github.com/user-attachments/assets/f1966aee-70ca-4822-b612-fa517dbe04d1)
 ![Imagen de WhatsApp 2025-06-18 a las 23 30 07_74c5b067](https://github.com/user-attachments/assets/bf16c7e7-2fbe-4e16-afbc-22c71df5e290)
 ![Imagen de WhatsApp 2025-06-18 a las 23 30 08_35576cd3](https://github.com/user-attachments/assets/c47a7e70-4dde-4c4e-bb82-938e62fd42f0)
+
 - **Prototipo**
   
 ![Captura de pantalla 2025-06-09 021327](https://github.com/user-attachments/assets/30a4e646-654f-4296-a70a-220cba49f6ab)
