@@ -46,10 +46,12 @@ Este proyecto se encuentra en desarrollo activo. Próximamente se integrarán nu
 
 ## Anexos
 - **Desarrollo**
+  
 ![imagen](https://github.com/user-attachments/assets/f1966aee-70ca-4822-b612-fa517dbe04d1)
 ![Imagen de WhatsApp 2025-06-18 a las 23 30 07_74c5b067](https://github.com/user-attachments/assets/bf16c7e7-2fbe-4e16-afbc-22c71df5e290)
 ![Imagen de WhatsApp 2025-06-18 a las 23 30 08_35576cd3](https://github.com/user-attachments/assets/c47a7e70-4dde-4c4e-bb82-938e62fd42f0)
 - **Prototipo**
+  
 ![Captura de pantalla 2025-06-09 021327](https://github.com/user-attachments/assets/30a4e646-654f-4296-a70a-220cba49f6ab)
 ![Captura de pantalla 2025-06-09 021158](https://github.com/user-attachments/assets/776efe11-88e0-4f7f-8784-eea69fd195f8)
 ![Captura de pantalla 2025-06-09 021212](https://github.com/user-attachments/assets/43ad2d3e-9b53-45be-8fed-4a70f1bdcc04)
